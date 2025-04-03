@@ -1,7 +1,0 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'PaperMod'
-
-[params]
-description = "A collection of p5.js sketches"

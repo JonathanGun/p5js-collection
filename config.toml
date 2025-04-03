@@ -1,0 +1,8 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Jonathan Yudi Gunawan - Personal Website'
+theme = 'PaperMod'
+
+[params]
+description = "A personal website of Jonathan Yudi Gunawan"
+author = "Jonathan Yudi Gunawan"
