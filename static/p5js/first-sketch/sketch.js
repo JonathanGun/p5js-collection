@@ -11,8 +11,7 @@ function setup() {
 
 function draw() {
     // Only draw when mouse is pressed and moved
-    if (drawing && mouseIsPressed &&
-        (mouseX !== prevX || mouseY !== prevY)) {
+    if (drawing && mouseIsPressed && (mouseX !== prevX || mouseY !== prevY)) {
         line(prevX, prevY, mouseX, mouseY);
     }
 
@@ -23,7 +22,7 @@ function draw() {
 
 function mousePressed() {
     drawing = true;
-    // Start new drawing path
+
     prevX = mouseX;
     prevY = mouseY;
 }
@@ -38,3 +37,28 @@ function keyPressed() {
         background(240);
     }
 }
+
+
+function touchStarted() {
+    fullscreen();
+    drawing = true;
+    prevX = mouseX;
+    prevY = mouseY;
+    return false; // Prevent default behavior
+}
+
+function touchMoved() {
+    drawing = true;
+    return false; // Prevent default behavior
+}
+
+function touchEnded() {
+    drawing = false;
+    return false; // Prevent default behavior
+}
+
+document.body.addEventListener("touchmove", ev => {
+    if (ev.touches.length >= 1) {
+        ev.preventDefault();
+    }
+}, true);
