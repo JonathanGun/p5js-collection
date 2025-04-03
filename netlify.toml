@@ -1,4 +1,4 @@
 [template.environment]
-HUGO_VERSION = "0.145.0"
+HUGO_VERSION = "0.112.4"
 [build]
 command = "hugo --baseURL $URL"
