@@ -1,0 +1,15 @@
+.sketch-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sketch-title {
+    text-align: center;
+}
+
+.sketch-wrapper {
+    display: flex;
+    justify-content: center;
+}
+

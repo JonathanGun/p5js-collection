@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $sketchCSS := resources.Get "css/sketches.css" | minify }}
+<link rel="stylesheet" href="{{ $sketchCSS.Permalink }}">
+<div class="sketch-page">
+    <h1 class="sketch-title">{{ .Title }}</h1>
+
+    <div class="sketch-wrapper">
+        <div id="p5-canvas"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+    <script src="{{ .RelPermalink }}{{ .Params.sketch_file }}?v={{ now.Unix }}"></script>
+</div>
+{{ end }}
