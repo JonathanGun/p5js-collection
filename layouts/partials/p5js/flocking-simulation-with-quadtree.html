@@ -1,0 +1,7 @@
+{{ $jsFiles := slice
+"boid.js"
+"rules.js"
+}}
+{{ range $jsFiles }}
+<script src="{{ $.RelPermalink }}/{{ . }}?v={{ now.Unix }}"></script>
+{{ end }}

@@ -24,8 +24,13 @@ EOL
 cat > content/p5js/$SKETCH_NAME/index.md <<EOL
 ---
 title: "${SKETCH_NAME//-/ }"
-sketch_file: "sketch.js"
 ---
+EOL
+
+cat > partials/p5js/$SKETCH_NAME.html <<EOL
+<div>
+  <p>${SKETCH_NAME//-/ }</p>
+</div>
 EOL
 
 echo "Created new sketch: $SKETCH_NAME"

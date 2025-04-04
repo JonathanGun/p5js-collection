@@ -1,14 +1,18 @@
 {{ define "main" }}
 {{ $sketchCSS := resources.Get "css/sketches.css" | minify }}
-<link rel="stylesheet" href="{{ $sketchCSS.Permalink }}">
+<link rel="stylesheet" href="{{ $sketchCSS.Permalink }}?v={{ now.Unix }}" type="text/css" />
 <div class="sketch-page">
     <h1 class="sketch-title">{{ .Title }}</h1>
 
     <div class="sketch-wrapper">
         <div id="p5-canvas"></div>
+        {{ $sketchPartial := printf "p5js/%s.html" .File.ContentBaseName }}
+        {{ if templates.Exists (printf "partials/%s" $sketchPartial) }}
+        {{ partial $sketchPartial . }}
+        {{ end }}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
-    <script src="{{ .RelPermalink }}{{ .Params.sketch_file }}?v={{ now.Unix }}"></script>
+    <script src="{{ .RelPermalink }}/sketch.js?v={{ now.Unix }}"></script>
 </div>
 {{ end }}
